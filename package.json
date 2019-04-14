@@ -1,0 +1,19 @@
+{
+	"name": "abort-exception",
+	"type": "module",
+	"version": "1.0.0",
+	"description": "AbortException companion to AbortController",
+	"main": "abort-exception.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://archive.voodoowarez.com/abort-exception"
+	},
+	"keywords": [],
+	"author": "jauntywunderkind",
+	"license": "MIT",
+	"module": "abort-exception.js",
+	"esm": true
+}
