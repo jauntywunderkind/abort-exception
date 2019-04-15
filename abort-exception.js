@@ -6,13 +6,27 @@ const
   origBaseError= domException? DOMException: Error
 let baseError= origBaseError
 
+function wrapError( err){
+	if( err instanceof Error){
+		return "AbortException wrapping: " + (err.message|| "")
+	}
+	return err
+}
+
 export function generateAbortException( baseErrorClass= baseError){
 	if( nativeAbortException){
 		return nativeAbortException
 	}
 	const abortException= (function(){
 		// we use the IIFE so this class-expression can implicitly get the desired `name`.
-		const AbortException= class extends baseErrorClass{}
+		const AbortException= class extends baseErrorClass{
+			constructor( err){
+				super( wrapError( err))
+				if( err instanceof Error){
+					this.wrappedError= err
+				}
+			}
+		}
 		return AbortException
 	})()
 	return abortException
