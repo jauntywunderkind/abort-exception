@@ -7,6 +7,9 @@ const
 let baseError= origBaseError
 
 function wrapError( err){
+	if( err=== true|| err=== false|| err=== null){
+		return undefined
+	}
 	if( err instanceof Error){
 		return "AbortException wrapping: " + (err.message|| "")
 	}
